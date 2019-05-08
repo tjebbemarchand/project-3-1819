@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Tags demo</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">Jiskefet</a>
+    </nav>
+    <div class="jf-content ">
+        <div class="container-fluid">
+            <div class="container-fluid">
+                <div>
+                    <div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="text-center"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="row">
+                            <div class="col-md-12 mx-auto">
+                                <div class="card-header">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h3>Run</h3>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="row justify-content-end"><button
+                                                    class="btn btn-success btn-sm mr-1">Add new log to run</button>
+                                                <div><button type="button" data-toggle="modal"
+                                                        data-target="#add-existing-run"
+                                                        class="btn btn-primary float-right">Link existing log</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <dl class="row" style="margin-block-end: 0px;">
+                                                    <dt class="col-sm-6">Run number</dt>
+                                                    <dd class="col-sm-6">1</dd>
+                                                </dl>
+                                                <dl class="row" style="margin-block-end: 0px;">
+                                                    <dt class="col-sm-6">Time O² start</dt>
+                                                    <dd class="col-sm-6">21:25:42 30/11/2018</dd>
+                                                </dl>
+                                                <dl class="row" style="margin-block-end: 0px;">
+                                                    <dt class="col-sm-6">Time O² end</dt>
+                                                    <dd class="col-sm-6">Run In Progress</dd>
+                                                </dl>
+                                                <dl class="row" style="margin-block-end: 0px;">
+                                                    <dt class="col-sm-6">Time TRG start</dt>
+                                                    <dd class="col-sm-6">09:47:59 21/10/2018</dd>
+                                                </dl>
+                                                <dl class="row" style="margin-block-end: 0px;">
+                                                    <dt class="col-sm-6">Time TRG end</dt>
+                                                    <dd class="col-sm-6">Run In Progress</dd>
+                                                </dl>
+                                                <dl class="row" style="margin-block-end: 0px;">
+                                                    <dt class="col-sm-6">Run type</dt>
+                                                    <dd class="col-sm-6">PHYSICS</dd>
+                                                </dl>
+                                                <dl class="row" style="margin-block-end: 0px;">
+                                                    <dt class="col-sm-6">Run quality</dt>
+                                                    <dd class="col-sm-6"><span class="badge badge-warning"></span></dd>
+                                                </dl>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <dl class="row" style="margin-block-end: 0px;">
+                                                    <dt class="col-sm-6">Number of detectors</dt>
+                                                    <dd class="col-sm-6">9</dd>
+                                                </dl>
+                                                <dl class="row" style="margin-block-end: 0px;">
+                                                    <dt class="col-sm-6">Number of FLP's</dt>
+                                                    <dd class="col-sm-6">41</dd>
+                                                </dl>
+                                                <dl class="row" style="margin-block-end: 0px;">
+                                                    <dt class="col-sm-6">Number of EPN's</dt>
+                                                    <dd class="col-sm-6">88</dd>
+                                                </dl>
+                                                <dl class="row" style="margin-block-end: 0px;">
+                                                    <dt class="col-sm-6">Number of timeframes</dt>
+                                                    <dd class="col-sm-6"></dd>
+                                                </dl>
+                                                <dl class="row" style="margin-block-end: 0px;">
+                                                    <dt class="col-sm-6">Number of sub-timeframes</dt>
+                                                    <dd class="col-sm-6"></dd>
+                                                </dl>
+                                                <dl class="row" style="margin-block-end: 0px;">
+                                                    <dt class="col-sm-6">Bytes read out</dt>
+                                                    <dd class="col-sm-6"></dd>
+                                                </dl>
+                                                <dl class="row" style="margin-block-end: 0px;">
+                                                    <dt class="col-sm-6">Bytes timeframe builder</dt>
+                                                    <dd class="col-sm-6"></dd>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="tab-content false">
+                                            <div>
+                                                <h3>Currently added tags:</h3>
+                                                <ul></ul>
+                                                <hr>
+                                                <h3>Add a Tag to this run:</h3>
+                                                <form>
+                                                    <div class="form-group undefined"><label for="tag">Select an
+                                                            existing tag:</label>
+                                                        <div class="field">
+                                                            <div>
+                                                                <div><select id="tag" name="tag" required=""
+                                                                        class="form-control undefined">
+                                                                        <option value="">No options found</option>
+                                                                    </select></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group undefined"><label autofocus="autofocus"
+                                                            for="description">Add new tag:</label>
+                                                        <div class="field"><input id="tagText" type="text" required=""
+                                                                autofocus="" class="form-control undefined"></div>
+                                                    </div>
+                                                    <div class="form-group undefined">
+                                                        <div class="field"><button type="submit"
+                                                                class="btn btn-primary undefined undefined">Add
+                                                                Tag</button></div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="/js/app.js"></script>
+</body>
+
+</html>
