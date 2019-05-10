@@ -1,0 +1,34 @@
+.navbar {
+    margin-bottom: 25px;
+}
+
+.add-tags-page {
+    padding: 20px;
+}
+
+.tags {
+    margin-top: 10px;
+
+    &__tag {
+        cursor: pointer;
+        border-radius: 5px;
+        padding: 5px 15px;
+        color: white;
+        border: none;
+        opacity: 0.3;
+        
+        &--active {
+            opacity: 1;
+        }
+
+        button {
+            background: none;
+            border: none;
+            color: white;
+        }
+    }
+
+    &__tag:not(:last-child) {
+        margin-right: 10px;
+    }
+}

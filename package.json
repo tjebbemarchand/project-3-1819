@@ -7,7 +7,8 @@
 		"watch:sass": "node-sass app/static/sass/main.scss app/static/css/style.css -w",
 		"devserver": "nodemon app/server.js",
 		"dev": "npm-run-all --parallel devserver watch:sass",
-		"compile:sass": "node-sass app/static/sass/main.scss app/static/css/style.css"
+		"compile:sass": "node-sass app/static/sass/main.scss app/static/css/style.css",
+		"start": "node app/server.js"
 	},
 	"author": "",
 	"license": "ISC",
@@ -18,6 +19,7 @@
 	},
 	"dependencies": {
 		"express": "^4.16.4",
-		"socket.io": "^2.2.0"
+		"socket.io": "^2.2.0",
+		"uuidv4": "^4.0.0"
 	}
 }

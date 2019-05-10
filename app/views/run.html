@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body cz-shortcut-listen="true">
+	<noscript>
+		<h1 style="font-family: sans-serif; text-align: center">JavaScript must be enabled to run Jiskefet</h1>
+	</noscript>
+
+	<nav class="navbar navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">Navbar</a>
+	</nav>
+
+	<div class="container-fluid">
+		<div class="row">
+
+
+
+			<div class="col-md-12 mx-auto">
+				<div class="card shadow-sm bg-light">
+					<div class="card-header">
+						<div class="row">
+							<div class="col-md-6">
+								<h3>Run</h3>
+							</div>
+							<div class="col-md-6">
+								<div class="row justify-content-end"><button class="btn btn-success btn-sm mr-1">Add new log to
+										run</button>
+									<div><button type="button" data-toggle="modal" data-target="#add-existing-run"
+											class="btn btn-primary float-right">Link existing
+											log</button>
+										<div tabindex="-1" role="dialog" id="add-existing-run" class="modal mt-5">
+											<div role="document" class="modal-dialog modal-lg">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h5 class="modal-title">Link existing
+															log</h5><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span
+																aria-hidden="true">×</span></button>
+													</div>
+													<div class="modal-body">
+														<div>
+															<div>
+																<div>
+																	<div class="row">
+																		<div class="col-md-12">
+																			<div id="filters" aria-expanded="true" data-fa-transform="grow-10"
+																				class="jf-collapse-toggle">
+																				<svg class="svg-inline--fa fa-filter fa-w-16" aria-hidden="true"
+																					data-prefix="fas" data-icon="filter" role="img"
+																					xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+																					<path fill="currentColor"
+																						d="M487.976 0H24.028C2.71 0-8.047 25.866 7.058 40.971L192 225.941V432c0 7.831 3.821 15.17 10.237 19.662l80 55.98C298.02 518.69 320 507.493 320 487.98V225.941l184.947-184.97C520.021 25.896 509.338 0 487.976 0z">
+																					</path>
+																				</svg>
+																				<!-- <span class="fas fa-filter"></span> -->&nbsp;Filters
+																			</div>
+																			<div id="filters" class="">
+																				<div>
+																					<div class="row">
+																						<div class="col-md-12">
+																							<div id="logId" aria-expanded="true" data-fa-transform="grow-10"
+																								class="jf-collapse-toggle">
+																								<svg
+																									class="svg-inline--fa fa-angle-down fa-w-10 mt-2 jf-rotate-if-collapsed jf-rotate-if-not-collapsed"
+																									aria-hidden="true" data-prefix="fas" data-icon="angle-down" role="img"
+																									xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+																									data-fa-i2svg="">
+																									<path fill="currentColor"
+																										d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z">
+																									</path>
+																								</svg>
+																								<!-- <i class="fas fa-angle-down mt-2 jf-rotate-if-collapsed jf-rotate-if-not-collapsed"></i> -->&nbsp;Log
+																								id
+																							</div>
+																							<div id="logId" class="">
+																								<div class="form-group mt-2">
+																									<input type="number" id="logId" placeholder="e.g. 1"
+																										class="form-control form-control-sm">
+																								</div>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+																				<div>
+																					<div class="row">
+																						<div class="col-md-12">
+																							<div id="searchterm" aria-expanded="true" data-fa-transform="grow-10"
+																								class="jf-collapse-toggle">
+																								<svg
+																									class="svg-inline--fa fa-angle-down fa-w-10 mt-2 jf-rotate-if-collapsed jf-rotate-if-not-collapsed"
+																									aria-hidden="true" data-prefix="fas" data-icon="angle-down" role="img"
+																									xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+																									data-fa-i2svg="">
+																									<path fill="currentColor"
+																										d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z">
+																									</path>
+																								</svg>
+																								<!-- <i class="fas fa-angle-down mt-2 jf-rotate-if-collapsed jf-rotate-if-not-collapsed"></i> -->&nbsp;Title
+																							</div>
+																							<div id="searchterm" class="">
+																								<div class="form-group mt-2">
+																									<input type="text" id="searchterm" placeholder="e.g. EOR report"
+																										class="form-control form-control-sm">
+																								</div>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="table-responsive">
+																<table class="table table-sm table-bordered table-hover jf-table ">
+																	<thead class="thead-light">
+																		<tr>
+																			<th scope="col" class="jf-th null">
+																				Action</th>
+																			<th scope="col" class="jf-th null">
+																				Log id</th>
+																			<th scope="col" class="jf-th null">
+																				Title</th>
+																			<th scope="col" class="jf-th null">
+																				Sub-type</th>
+																			<th scope="col" class="jf-th null">
+																				Origin</th>
+																			<th scope="col" class="jf-th null">
+																				Creation time
+																			</th>
+																		</tr>
+																	</thead>
+																	<tbody>
+																		<tr>
+																			<td><button type="button" data-dismiss="modal"
+																					class="btn btn-primary btn-sm btn-block">Link</button>
+																			</td>
+																			<td>1</td>
+																			<td>nulla dapibus
+																				dolor vel est
+																				donec odio justo
+																				sollicitudin ut
+																				suscipit</td>
+																			<td>comment</td>
+																			<td>
+																				<div class="text-center">
+																					<span class="badge badge-success">human</span>
+																				</div>
+																			</td>
+																			<td>16:29:55
+																				02/07/2019</td>
+																		</tr>
+																		<tr>
+																			<td><button type="button" data-dismiss="modal"
+																					class="btn btn-primary btn-sm btn-block">Link</button>
+																			</td>
+																			<td>2</td>
+																			<td>euismod
+																				scelerisque quam
+																				turpis
+																				adipiscing lorem
+																				vitae mattis
+																				nibh ligula nec
+																				sem</td>
+																			<td>comment</td>
+																			<td>
+																				<div class="text-center">
+																					<span class="badge badge-success">human</span>
+																				</div>
+																			</td>
+																			<td>04:48:58
+																				09/03/2019</td>
+																		</tr>
+																		<tr>
+																			<td><button type="button" data-dismiss="modal"
+																					class="btn btn-primary btn-sm btn-block">Link</button>
+																			</td>
+																			<td>3</td>
+																			<td>gravida sem
+																				praesent id
+																				massa id nisl
+																				venenatis
+																				lacinia aenean
+																				sit amet justo
+																				morbi ut</td>
+																			<td>comment</td>
+																			<td>
+																				<div class="text-center">
+																					<span class="badge badge-success">human</span>
+																				</div>
+																			</td>
+																			<td>19:20:48
+																				23/05/2019</td>
+																		</tr>
+																		<tr>
+																			<td><button type="button" data-dismiss="modal"
+																					class="btn btn-primary btn-sm btn-block">Link</button>
+																			</td>
+																			<td>4</td>
+																			<td>nisi venenatis
+																				tristique fusce
+																				congue diam id
+																				ornare imperdiet
+																				sapien urna</td>
+																			<td>comment</td>
+																			<td>
+																				<div class="text-center">
+																					<span class="badge badge-success">human</span>
+																				</div>
+																			</td>
+																			<td>20:38:14
+																				24/04/2019</td>
+																		</tr>
+																		<tr>
+																			<td><button type="button" data-dismiss="modal"
+																					class="btn btn-primary btn-sm btn-block">Link</button>
+																			</td>
+																			<td>5</td>
+																			<td>pede justo eu
+																				massa donec
+																				dapibus duis at
+																				velit eu est
+																			</td>
+																			<td>
+																				<div class="text-center">
+																					<span class="badge badge-warning">run</span>
+																				</div>
+																			</td>
+																			<td>process</td>
+																			<td>04:33:37
+																				05/05/2019</td>
+																		</tr>
+																		<tr>
+																			<td><button type="button" data-dismiss="modal"
+																					class="btn btn-primary btn-sm btn-block">Link</button>
+																			</td>
+																			<td>6</td>
+																			<td>nulla tellus in
+																				sagittis dui vel
+																				nisl duis ac
+																				nibh</td>
+																			<td>
+																				<div class="text-center">
+																					<span class="badge badge-warning">run</span>
+																				</div>
+																			</td>
+																			<td>process</td>
+																			<td>12:56:42
+																				02/04/2019</td>
+																		</tr>
+																		<tr>
+																			<td><button type="button" data-dismiss="modal"
+																					class="btn btn-primary btn-sm btn-block">Link</button>
+																			</td>
+																			<td>7</td>
+																			<td>ultrices enim
+																				lorem ipsum
+																				dolor sit amet
+																				consectetuer
+																				adipiscing elit
+																				proin interdum
+																				mauris non
+																				ligula
+																				pellentesque
+																				ultrices
+																				phasellus id
+																				sapien</td>
+																			<td>
+																				<div class="text-center">
+																					<span class="badge badge-warning">run</span>
+																				</div>
+																			</td>
+																			<td>process</td>
+																			<td>03:42:06
+																				12/04/2019</td>
+																		</tr>
+																		<tr>
+																			<td><button type="button" data-dismiss="modal"
+																					class="btn btn-primary btn-sm btn-block">Link</button>
+																			</td>
+																			<td>8</td>
+																			<td>congue elementum
+																				in hac habitasse
+																				platea dictumst
+																				morbi vestibulum
+																				velit id pretium
+																				iaculis diam
+																				erat fermentum
+																				justo nec
+																				condimentum</td>
+																			<td>comment</td>
+																			<td>
+																				<div class="text-center">
+																					<span class="badge badge-success">human</span>
+																				</div>
+																			</td>
+																			<td>17:55:44
+																				17/02/2019</td>
+																		</tr>
+																		<tr>
+																			<td><button type="button" data-dismiss="modal"
+																					class="btn btn-primary btn-sm btn-block">Link</button>
+																			</td>
+																			<td>9</td>
+																			<td>ante ipsum
+																				primis in
+																				faucibus orci
+																				luctus et
+																				ultrices posuere
+																				cubilia curae
+																				mauris viverra
+																				diam vitae quam
+																				suspendisse</td>
+																			<td>
+																				<div class="text-center">
+																					<span class="badge badge-warning">run</span>
+																				</div>
+																			</td>
+																			<td>process</td>
+																			<td>11:38:33
+																				01/03/2019</td>
+																		</tr>
+																		<tr>
+																			<td><button type="button" data-dismiss="modal"
+																					class="btn btn-primary btn-sm btn-block">Link</button>
+																			</td>
+																			<td>10</td>
+																			<td>amet justo morbi
+																				ut odio cras mi
+																				pede malesuada
+																				in imperdiet
+																			</td>
+																			<td>comment</td>
+																			<td>
+																				<div class="text-center">
+																					<span class="badge badge-success">human</span>
+																				</div>
+																			</td>
+																			<td>16:37:33
+																				29/04/2019</td>
+																		</tr>
+																		<tr>
+																			<td><button type="button" data-dismiss="modal"
+																					class="btn btn-primary btn-sm btn-block">Link</button>
+																			</td>
+																			<td>11</td>
+																			<td>et ultrices
+																				posuere cubilia
+																				curae duis
+																				faucibus
+																				accumsan odio
+																				curabitur
+																				convallis duis
+																				consequat dui
+																				nec nisi
+																				volutpat
+																				eleifend</td>
+																			<td>comment</td>
+																			<td>
+																				<div class="text-center">
+																					<span class="badge badge-success">human</span>
+																				</div>
+																			</td>
+																			<td>08:54:23
+																				05/02/2019</td>
+																		</tr>
+																		<tr>
+																			<td><button type="button" data-dismiss="modal"
+																					class="btn btn-primary btn-sm btn-block">Link</button>
+																			</td>
+																			<td>12</td>
+																			<td>lobortis sapien
+																				sapien non mi
+																				integer ac neque
+																				duis bibendum
+																			</td>
+																			<td>
+																				<div class="text-center">
+																					<span class="badge badge-warning">run</span>
+																				</div>
+																			</td>
+																			<td>process</td>
+																			<td>15:53:03
+																				15/03/2019</td>
+																		</tr>
+																		<tr>
+																			<td><button type="button" data-dismiss="modal"
+																					class="btn btn-primary btn-sm btn-block">Link</button>
+																			</td>
+																			<td>13</td>
+																			<td>eget massa
+																				tempor convallis
+																				nulla neque
+																				libero convallis
+																				eget eleifend
+																				luctus ultricies
+																				eu</td>
+																			<td>comment</td>
+																			<td>
+																				<div class="text-center">
+																					<span class="badge badge-success">human</span>
+																				</div>
+																			</td>
+																			<td>09:57:57
+																				07/07/2019</td>
+																		</tr>
+																		<tr>
+																			<td><button type="button" data-dismiss="modal"
+																					class="btn btn-primary btn-sm btn-block">Link</button>
+																			</td>
+																			<td>14</td>
+																			<td>pellentesque
+																				viverra pede ac
+																				diam cras
+																				pellentesque
+																				volutpat dui
+																				maecenas
+																				tristique</td>
+																			<td>
+																				<div class="text-center">
+																					<span class="badge badge-warning">run</span>
+																				</div>
+																			</td>
+																			<td>process</td>
+																			<td>00:13:38
+																				14/06/2019</td>
+																		</tr>
+																		<tr>
+																			<td><button type="button" data-dismiss="modal"
+																					class="btn btn-primary btn-sm btn-block">Link</button>
+																			</td>
+																			<td>15</td>
+																			<td>volutpat
+																				eleifend donec
+																				ut dolor morbi
+																				vel lectus in
+																				quam</td>
+																			<td>comment</td>
+																			<td>
+																				<div class="text-center">
+																					<span class="badge badge-success">human</span>
+																				</div>
+																			</td>
+																			<td>09:29:20
+																				03/07/2019</td>
+																		</tr>
+																		<tr>
+																			<td><button type="button" data-dismiss="modal"
+																					class="btn btn-primary btn-sm btn-block">Link</button>
+																			</td>
+																			<td>16</td>
+																			<td>vestibulum sit
+																				amet cursus id
+																				turpis integer
+																				aliquet massa id
+																			</td>
+																			<td>
+																				<div class="text-center">
+																					<span class="badge badge-warning">run</span>
+																				</div>
+																			</td>
+																			<td>process</td>
+																			<td>11:49:50
+																				22/07/2019</td>
+																		</tr>
+																		<tr>
+																			<td><button type="button" data-dismiss="modal"
+																					class="btn btn-primary btn-sm btn-block">Link</button>
+																			</td>
+																			<td>17</td>
+																			<td>non mi integer
+																				ac neque duis
+																				bibendum morbi
+																				non quam nec dui
+																				luctus rutrum
+																				nulla</td>
+																			<td>comment</td>
+																			<td>
+																				<div class="text-center">
+																					<span class="badge badge-success">human</span>
+																				</div>
+																			</td>
+																			<td>21:20:23
+																				09/02/2019</td>
+																		</tr>
+																		<tr>
+																			<td><button type="button" data-dismiss="modal"
+																					class="btn btn-primary btn-sm btn-block">Link</button>
+																			</td>
+																			<td>18</td>
+																			<td>justo
+																				pellentesque
+																				viverra pede ac
+																				diam cras
+																				pellentesque
+																				volutpat dui
+																				maecenas
+																				tristique</td>
+																			<td>comment</td>
+																			<td>
+																				<div class="text-center">
+																					<span class="badge badge-success">human</span>
+																				</div>
+																			</td>
+																			<td>05:17:06
+																				25/04/2019</td>
+																		</tr>
+																		<tr>
+																			<td><button type="button" data-dismiss="modal"
+																					class="btn btn-primary btn-sm btn-block">Link</button>
+																			</td>
+																			<td>19</td>
+																			<td>ultrices enim
+																				lorem ipsum
+																				dolor sit amet
+																				consectetuer
+																				adipiscing elit
+																				proin interdum
+																				mauris non</td>
+																			<td>comment</td>
+																			<td>
+																				<div class="text-center">
+																					<span class="badge badge-success">human</span>
+																				</div>
+																			</td>
+																			<td>07:14:00
+																				03/06/2019</td>
+																		</tr>
+																		<tr>
+																			<td><button type="button" data-dismiss="modal"
+																					class="btn btn-primary btn-sm btn-block">Link</button>
+																			</td>
+																			<td>20</td>
+																			<td>eu orci mauris
+																				lacinia sapien
+																				quis libero
+																				nullam sit amet
+																				turpis elementum
+																				ligula vehicula
+																			</td>
+																			<td>
+																				<div class="text-center">
+																					<span class="badge badge-warning">run</span>
+																				</div>
+																			</td>
+																			<td>process</td>
+																			<td>09:11:22
+																				18/05/2019</td>
+																		</tr>
+																		<tr>
+																			<td><button type="button" data-dismiss="modal"
+																					class="btn btn-primary btn-sm btn-block">Link</button>
+																			</td>
+																			<td>21</td>
+																			<td>donec vitae nisi
+																				nam ultrices
+																				libero non
+																				mattis pulvinar
+																				nulla pede
+																				ullamcorper
+																				augue a suscipit
+																				nulla elit ac
+																				nulla sed</td>
+																			<td>
+																				<div class="text-center">
+																					<span class="badge badge-warning">run</span>
+																				</div>
+																			</td>
+																			<td>process</td>
+																			<td>15:59:27
+																				12/04/2019</td>
+																		</tr>
+																		<tr>
+																			<td><button type="button" data-dismiss="modal"
+																					class="btn btn-primary btn-sm btn-block">Link</button>
+																			</td>
+																			<td>22</td>
+																			<td>libero nam dui
+																				proin leo odio
+																				porttitor id
+																				consequat in
+																				consequat ut
+																				nulla</td>
+																			<td>
+																				<div class="text-center">
+																					<span class="badge badge-warning">run</span>
+																				</div>
+																			</td>
+																			<td>process</td>
+																			<td>13:31:11
+																				29/06/2019</td>
+																		</tr>
+																		<tr>
+																			<td><button type="button" data-dismiss="modal"
+																					class="btn btn-primary btn-sm btn-block">Link</button>
+																			</td>
+																			<td>23</td>
+																			<td>accumsan tortor
+																				quis turpis sed
+																				ante vivamus
+																				tortor duis
+																				mattis egestas
+																				metus aenean
+																				fermentum donec
+																				ut</td>
+																			<td>
+																				<div class="text-center">
+																					<span class="badge badge-warning">run</span>
+																				</div>
+																			</td>
+																			<td>process</td>
+																			<td>06:27:33
+																				15/02/2019</td>
+																		</tr>
+																		<tr>
+																			<td><button type="button" data-dismiss="modal"
+																					class="btn btn-primary btn-sm btn-block">Link</button>
+																			</td>
+																			<td>24</td>
+																			<td>id massa id nisl
+																				venenatis
+																				lacinia aenean
+																				sit amet justo
+																				morbi ut odio
+																			</td>
+																			<td>
+																				<div class="text-center">
+																					<span class="badge badge-warning">run</span>
+																				</div>
+																			</td>
+																			<td>process</td>
+																			<td>04:13:46
+																				22/06/2019</td>
+																		</tr>
+																		<tr>
+																			<td><button type="button" data-dismiss="modal"
+																					class="btn btn-primary btn-sm btn-block">Link</button>
+																			</td>
+																			<td>25</td>
+																			<td>rutrum nulla
+																				nunc purus
+																				phasellus in
+																				felis donec
+																				semper sapien a
+																				libero nam dui
+																				proin leo odio
+																				porttitor id
+																				consequat</td>
+																			<td>comment</td>
+																			<td>
+																				<div class="text-center">
+																					<span class="badge badge-success">human</span>
+																				</div>
+																			</td>
+																			<td>21:25:38
+																				15/07/2019</td>
+																		</tr>
+																	</tbody>
+																</table>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card-body">
+						<div>
+							<div class="row">
+								<div class="col-md-6">
+									<dl class="row" style="margin-block-end: 0px;">
+										<dt class="col-sm-6">Run number</dt>
+										<dd class="col-sm-6">0</dd>
+									</dl>
+									<dl class="row" style="margin-block-end: 0px;">
+										<dt class="col-sm-6">Time O² start</dt>
+										<dd class="col-sm-6">01:00:00 01/01/1970</dd>
+									</dl>
+									<dl class="row" style="margin-block-end: 0px;">
+										<dt class="col-sm-6">Time O² end</dt>
+										<dd class="col-sm-6">Run In Progress</dd>
+									</dl>
+									<dl class="row" style="margin-block-end: 0px;">
+										<dt class="col-sm-6">Time TRG start</dt>
+										<dd class="col-sm-6">01:00:00 01/01/1970</dd>
+									</dl>
+									<dl class="row" style="margin-block-end: 0px;">
+										<dt class="col-sm-6">Time TRG end</dt>
+										<dd class="col-sm-6">Run In Progress</dd>
+									</dl>
+									<dl class="row" style="margin-block-end: 0px;">
+										<dt class="col-sm-6">Run type</dt>
+										<dd class="col-sm-6">PHYSICS</dd>
+									</dl>
+									<dl class="row" style="margin-block-end: 0px;">
+										<dt class="col-sm-6">Run quality</dt>
+										<dd class="col-sm-6"><span class="badge badge-warning"></span></dd>
+									</dl>
+								</div>
+								<div class="col-md-6">
+									<dl class="row" style="margin-block-end: 0px;">
+										<dt class="col-sm-6">Number of detectors</dt>
+										<dd class="col-sm-6">0</dd>
+									</dl>
+									<dl class="row" style="margin-block-end: 0px;">
+										<dt class="col-sm-6">Number of FLP's</dt>
+										<dd class="col-sm-6">0</dd>
+									</dl>
+									<dl class="row" style="margin-block-end: 0px;">
+										<dt class="col-sm-6">Number of EPN's</dt>
+										<dd class="col-sm-6">0</dd>
+									</dl>
+									<dl class="row" style="margin-block-end: 0px;">
+										<dt class="col-sm-6">Number of timeframes</dt>
+										<dd class="col-sm-6"></dd>
+									</dl>
+									<dl class="row" style="margin-block-end: 0px;">
+										<dt class="col-sm-6">Number of sub-timeframes</dt>
+										<dd class="col-sm-6"></dd>
+									</dl>
+									<dl class="row" style="margin-block-end: 0px;">
+										<dt class="col-sm-6">Bytes read out</dt>
+										<dd class="col-sm-6"></dd>
+									</dl>
+									<dl class="row" style="margin-block-end: 0px;">
+										<dt class="col-sm-6">Bytes timeframe builder</dt>
+										<dd class="col-sm-6"></dd>
+									</dl>
+								</div>
+								<div class="run-tags">
+									<h3>Run tags</h3>
+									<span data-id="1" style="background-color: red" class="tags__tag tags__tag--active" id="tag-PHYSICS">PHYSICS  </span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-header">
+							<ul class="nav nav-tabs card-header-tabs">
+								<li class="nav-item"><a href="javascript:void(0);" class="nav-link active">Tags</a></li>
+							</ul>
+						</div>
+						<div class="card-body">
+							<div class="tab-content d-none">This run has no logs</div>
+							<div class="tab-content false">
+								<div class="container-fluid">
+									<div class="row">
+
+										<div class="col-md-6">
+											<h3>All tags</h3>
+											<div class="tags">
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+	</script>
+	<script src="js/app.js"></script>
+</body>
+
+</html>
