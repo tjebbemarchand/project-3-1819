@@ -47,8 +47,17 @@ Voor verdere ontwikkeling
     npm run dev
 
 ## Gebruikte technieken
+### Boostrap
 Er is gebruik gemaakt van de Bootstrap framework om de app te stylen. De huidige dashboard is ook gebouwd in Bootstrap. Om mijn stukje functionaliteit in de dashboard te verwerken, heb ik de huidige dashboard gebruikt en alleen datgene aangepast waar de tags in komen te staan.
 
+### CSS compiler
 Om verder de app te stylen, heb ik een CSS compiler gebruikt. De compiler die ik gebruikt heb is SASS. Een CSS compiler zorgt ervoor dat je makkelijker de styling code schrijft. De code die je schrijft wordt omgezet die de browser kan begrijpen.
 
+### Websockets
 Om ervoor te zorgen dat er een automatische een nieuwe tag toegevoegd wordt als de admin een tag toevoegd aan het systeem, heb ik gebruik gemaakt van Websockets. Hiervoor heb ik een package gebruikt genaamd Socket.io. Socket.io maakt een real time verbinding tussen de client en de server. Dit moet ervoor zorgen dat als je op de ene pagina iets aanpast, dat de andere pagina automatisch geupdated wordt zonder te herladen.
+
+## Ontwerp keuzes
+- Ik heb ervoor gekozen om te werken met Bootstrap omdat de mensen die de dashboard onderhouden ook Bootstrap gebruiken. Zo kunnen ze heel makkelijk inspringen en aanpassingen doorvoeren als dat nodig is.
+- Als admin kun je zelf kiezen om een kleur te kiezen voor je tag. Zo kun je snel en makkelijk zien welke tags bij wat hoort.
+- Om geen onnodige tags te krijgen, kan alleen de admin deze toevoegen en verwijderen. De gebruiker kan wel een suggestie geven als de juiste tag er niet tussen staat.
+- De admin kan heel makkelijk een kleur kiezen door middel van een color picker. In plaats van de kleur code in te voeren.
